@@ -1,0 +1,15 @@
+ipykernel
+ipywidgets
+ipympl
+nbconvert
+numpy
+pandas
+scipy
+statsmodels
+matplotlib
+pyyaml
+tqdm
+pytest
+ruff
+jupytext
+papermill
