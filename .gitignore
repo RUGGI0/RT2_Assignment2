@@ -39,3 +39,7 @@ literature/pdfs/
 .DS_Store
 Thumbs.db
 *~
+
+# Private Obsidian project planning files
+Dashboard.md
+Project_Notes.md
