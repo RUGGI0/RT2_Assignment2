@@ -1,0 +1,6 @@
+strategy,trials,mean_compatibility_score,std_compatibility_score,median_setup_effort,mean_runtime_overhead,mean_integration_score,retained_windows_dependency_rate,full_compatibility_rate
+managed_prefix,120,45.462,17.658,34.66,11.881,75.366,0.0,0.033
+native_linux,120,89.086,5.23,11.17,3.803,95.695,0.0,0.992
+proton_like,120,49.91,18.539,41.915,9.627,79.698,0.0,0.05
+virtualisation,120,80.11,8.026,49.925,25.956,46.403,1.0,0.742
+wine_like,120,24.776,17.634,81.8,13.86,60.85,0.0,0.0
