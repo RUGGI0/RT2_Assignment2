@@ -6,10 +6,11 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Course-RT2-blue" />
-  <img src="https://img.shields.io/badge/Status-Work%20in%20Progress-orange" />
+  <img src="https://img.shields.io/badge/Status-Draft%20Ready-green" />
   <img src="https://img.shields.io/badge/Method-State%20of%20the%20Art-green" />
   <img src="https://img.shields.io/badge/Experiment-Synthetic%20Model-lightgrey" />
-  <img src="https://img.shields.io/badge/Notebook-Jupyter-red" />
+  <img src="https://img.shields.io/badge/Notebook-Executed-red" />
+  <img src="https://img.shields.io/badge/Paper-PDF%20Generated-blueviolet" />
 </p>
 
 ---
@@ -20,7 +21,7 @@ This repository contains the working material for **RT2 Assignment 2**.
 
 The project studies the **Windows–Linux application compatibility barrier**: the practical difficulty of adopting Linux when users, workflows, organisations or applications remain dependent on Windows-specific software.
 
-The main case study is:
+The main technical case study is:
 
 ```text
 SteamOS + Proton
@@ -34,13 +35,13 @@ Bazzite
 
 The project combines:
 
-| Component | Role |
-|---|---|
-| State-of-the-art review | Analyse Wine, Proton, SteamOS, Bazzite and compatibility-layer research |
-| Source matrix | Organise official, academic and supporting sources |
-| Synthetic experiment | Model how Windows-specific dependencies affect compatibility outcomes |
-| Jupyter notebook | Generate dataset, process results and export figures |
-| Final paper | To be written after literature synthesis and notebook execution |
+| Component | Role | Status |
+|---|---|---|
+| State-of-the-art review | Analyse Wine, Proton, SteamOS, Bazzite and compatibility-layer research | Drafted |
+| Source matrix | Organise official, academic and supporting sources | Completed initial version |
+| Synthetic experiment | Model how Windows-specific dependencies affect compatibility outcomes | Completed |
+| Jupyter notebook | Generate dataset, process results and export figures | Created and executed |
+| Final paper | IEEE-style report generated from LaTeX | Draft PDF generated |
 
 ---
 
@@ -84,6 +85,16 @@ The project therefore analyses compatibility as a multi-dimensional issue:
 
 ---
 
+## Research Question
+
+```text
+To what extent can compatibility layers reduce the application-ecosystem barrier
+between Windows and Linux, and which technical dependencies still prevent Windows
+applications from running reliably without native porting?
+```
+
+---
+
 ## Repository Structure
 
 ```text
@@ -102,7 +113,9 @@ RT2_Assignment2/
 │   └── processed/
 │       └── aggregated_results.csv
 ├── notebook/
-│   └── compatibility_barrier_experiment.ipynb
+│   ├── compatibility_barrier_experiment.ipynb
+│   ├── compatibility_barrier_experiment_executed.ipynb
+│   └── compatibility_barrier_experiment.html
 ├── figures/
 │   ├── compatibility_success_rate.png
 │   ├── dependency_risk_heatmap.png
@@ -110,19 +123,44 @@ RT2_Assignment2/
 │   ├── setup_effort_boxplot.png
 │   └── strategy_comparison.png
 ├── paper/
+│   ├── paper.tex
+│   ├── paper.pdf
+│   ├── paper_draft.md
+│   ├── references.bib
+│   ├── citation_plan.md
+│   └── README.md
 └── src/
 ```
 
 | Folder | Contents |
 |---|---|
 | `docs/` | Methodological documents |
-| `literature/` | Search protocol, source matrix and notes |
+| `literature/` | Search protocol, source matrix and source notes |
 | `data/raw/` | Raw synthetic dataset |
 | `data/processed/` | Aggregated results |
-| `notebook/` | Jupyter experiment notebook |
-| `figures/` | Exported plots |
-| `paper/` | Final report material, pending |
-| `src/` | Optional scripts, pending |
+| `notebook/` | Original notebook, executed notebook and HTML export |
+| `figures/` | Exported plots used by the paper |
+| `paper/` | LaTeX report, bibliography, draft, citation plan and generated PDF |
+| `src/` | Optional scripts, currently not central to the project |
+
+---
+
+## Main Outputs
+
+| Output | Path | Status |
+|---|---|---|
+| Final PDF draft | `paper/paper.pdf` | Generated |
+| LaTeX source | `paper/paper.tex` | Present |
+| Bibliography | `paper/references.bib` | Present |
+| Markdown draft | `paper/paper_draft.md` | Present |
+| Citation plan | `paper/citation_plan.md` | Present |
+| Experimental design | `docs/experimental_design.md` | Present |
+| Raw synthetic dataset | `data/raw/synthetic_trials.csv` | Generated |
+| Aggregated results | `data/processed/aggregated_results.csv` | Generated |
+| Main notebook | `notebook/compatibility_barrier_experiment.ipynb` | Present |
+| Executed notebook | `notebook/compatibility_barrier_experiment_executed.ipynb` | Generated |
+| Notebook HTML export | `notebook/compatibility_barrier_experiment.html` | Generated |
+| Figures | `figures/*.png` | Generated |
 
 ---
 
@@ -134,7 +172,7 @@ RT2_Assignment2/
 cd /home/ruggio/Documents/UniGe/RT2/Assignment2
 ```
 
-### 2. Create the virtual environment
+### 2. Create and activate the virtual environment
 
 ```bash
 python3 -m venv .venv
@@ -153,7 +191,7 @@ pip install -r requirements.txt
 code .
 ```
 
-### 5. Run the notebook
+### 5. Open the notebook
 
 ```bash
 jupyter notebook notebook/compatibility_barrier_experiment.ipynb
@@ -191,6 +229,42 @@ figures/strategy_comparison.png
 figures/dependency_risk_heatmap.png
 figures/setup_effort_boxplot.png
 figures/integration_score_by_strategy.png
+notebook/compatibility_barrier_experiment_executed.ipynb
+notebook/compatibility_barrier_experiment.html
+```
+
+---
+
+## Paper Build
+
+The IEEE-style paper is located in:
+
+```text
+paper/
+```
+
+To compile the PDF from LaTeX:
+
+```bash
+cd /home/ruggio/Documents/UniGe/RT2/Assignment2/paper
+
+pdflatex paper.tex
+bibtex paper
+pdflatex paper.tex
+pdflatex paper.tex
+```
+
+Expected output:
+
+```text
+paper/paper.pdf
+```
+
+If the IEEE class is missing on Ubuntu, install:
+
+```bash
+sudo apt update
+sudo apt install texlive-latex-base texlive-latex-extra texlive-publishers texlive-bibtex-extra
 ```
 
 ---
@@ -226,7 +300,7 @@ literature/notes/
 |---:|---|---|
 | 1 | Peer-reviewed research | Main evidence and conceptual grounding |
 | 2 | Official technical documentation | Architecture and intended behaviour |
-| 3 | Maintainer repositories | Implementation details |
+| 3 | Maintainer repositories | Implementation-level details |
 | 4 | Community databases | Practical examples and context |
 | 5 | Blogs / opinion pieces | Background only |
 
@@ -330,11 +404,13 @@ virtualisation
 | Synthetic dataset | Generated |
 | Aggregated results | Generated |
 | Notebook | Created |
+| Executed notebook | Generated |
+| Notebook HTML export | Generated |
 | Figures | Generated |
-| README | Temporary version |
-| Paper | Pending |
-| Notebook HTML export | Pending |
-| Final PDF report | Pending |
+| README | Updated |
+| Paper draft | Generated |
+| LaTeX paper | Generated |
+| Final PDF draft | Generated |
 
 ---
 
@@ -366,15 +442,15 @@ The final report must clearly distinguish between:
 
 ---
 
-## Next Steps
+## Remaining Work
 
-1. Complete the most important source notes.
-2. Verify academic sources and citations.
-3. Execute the notebook and export HTML.
-4. Write the IEEE-style paper.
-5. Connect paper claims to the source matrix and generated figures.
-6. Add final bibliography.
-7. Perform a clean reproduction test before submission.
+The main repository structure is now complete. The remaining work is qualitative revision:
+
+1. review the paper for clarity, grammar and page layout;
+2. check that every major claim has an appropriate citation;
+3. verify that figures fit cleanly in the IEEE layout;
+4. confirm that synthetic results are not presented as real compatibility measurements;
+5. perform one clean reproduction test before final submission.
 
 ---
 
