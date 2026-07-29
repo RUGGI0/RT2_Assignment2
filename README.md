@@ -10,14 +10,14 @@
   <img src="https://img.shields.io/badge/Method-State%20of%20the%20Art-green" />
   <img src="https://img.shields.io/badge/Experiment-Synthetic%20Model-lightgrey" />
   <img src="https://img.shields.io/badge/Notebook-Executed-red" />
-  <img src="https://img.shields.io/badge/Paper-PDF%20Generated-blueviolet" />
+  <img src="https://img.shields.io/badge/Paper-PDF%20Ready-blueviolet" />
 </p>
 
 ---
 
 ## Project Overview
 
-This repository contains the working material for **RT2 Assignment 2**.
+This repository contains the material for **RT2 Assignment 2**.
 
 The project studies the **Windows–Linux application compatibility barrier**: the practical difficulty of adopting Linux when users, workflows, organisations or applications remain dependent on Windows-specific software.
 
@@ -33,15 +33,15 @@ The comparative distribution-level case is:
 Bazzite
 ```
 
-The project combines:
+The project combines a state-of-the-art review with a small reproducible experimental model. The review discusses Wine, Proton, SteamOS, Bazzite and related compatibility tools. The experimental part uses a synthetic dataset to reason about how different Windows-specific dependencies can affect compatibility outcomes on Linux.
 
-| Component | Role | Status |
+| Component | Role | State |
 |---|---|---|
 | State-of-the-art review | Analyse Wine, Proton, SteamOS, Bazzite and compatibility-layer research | Drafted |
-| Source matrix | Organise official, academic and supporting sources | Completed initial version |
-| Synthetic experiment | Model how Windows-specific dependencies affect compatibility outcomes | Completed |
-| Jupyter notebook | Generate dataset, process results and export figures | Created and executed |
-| Final paper | IEEE-style report generated from LaTeX | Draft PDF generated |
+| Source matrix | Organise official, academic and supporting sources | First version complete |
+| Synthetic experiment | Model how Windows-specific dependencies affect compatibility outcomes | Complete |
+| Jupyter notebook | Create the dataset, process results and export figures | Available in original and executed form |
+| Final paper | IEEE-style report written in LaTeX | Draft PDF ready |
 
 ---
 
@@ -134,33 +134,33 @@ RT2_Assignment2/
 
 | Folder | Contents |
 |---|---|
-| `docs/` | Methodological documents |
+| `docs/` | Methodological notes and experimental design |
 | `literature/` | Search protocol, source matrix and source notes |
 | `data/raw/` | Raw synthetic dataset |
 | `data/processed/` | Aggregated results |
 | `notebook/` | Original notebook, executed notebook and HTML export |
-| `figures/` | Exported plots used by the paper |
-| `paper/` | LaTeX report, bibliography, draft, citation plan and generated PDF |
-| `src/` | Optional scripts, currently not central to the project |
+| `figures/` | Plots used in the paper |
+| `paper/` | LaTeX report, bibliography, draft, citation plan and PDF |
+| `src/` | Optional support scripts |
 
 ---
 
-## Main Outputs
+## Main Files
 
-| Output | Path | Status |
+| File | Path | Notes |
 |---|---|---|
-| Final PDF draft | `paper/paper.pdf` | Generated |
-| LaTeX source | `paper/paper.tex` | Present |
-| Bibliography | `paper/references.bib` | Present |
-| Markdown draft | `paper/paper_draft.md` | Present |
-| Citation plan | `paper/citation_plan.md` | Present |
-| Experimental design | `docs/experimental_design.md` | Present |
-| Raw synthetic dataset | `data/raw/synthetic_trials.csv` | Generated |
-| Aggregated results | `data/processed/aggregated_results.csv` | Generated |
-| Main notebook | `notebook/compatibility_barrier_experiment.ipynb` | Present |
-| Executed notebook | `notebook/compatibility_barrier_experiment_executed.ipynb` | Generated |
-| Notebook HTML export | `notebook/compatibility_barrier_experiment.html` | Generated |
-| Figures | `figures/*.png` | Generated |
+| Paper PDF | `paper/paper.pdf` | Current IEEE-style draft |
+| LaTeX source | `paper/paper.tex` | Main paper source |
+| Bibliography | `paper/references.bib` | BibTeX references used by the LaTeX paper |
+| Markdown draft | `paper/paper_draft.md` | Readable draft version of the paper |
+| Citation plan | `paper/citation_plan.md` | Map between claims and citation keys |
+| Experimental design | `docs/experimental_design.md` | Methodological description of the synthetic model |
+| Raw synthetic dataset | `data/raw/synthetic_trials.csv` | Input dataset used by the notebook |
+| Aggregated results | `data/processed/aggregated_results.csv` | Summary table used for analysis |
+| Main notebook | `notebook/compatibility_barrier_experiment.ipynb` | Editable notebook |
+| Executed notebook | `notebook/compatibility_barrier_experiment_executed.ipynb` | Notebook with saved outputs |
+| Notebook HTML export | `notebook/compatibility_barrier_experiment.html` | Browser-readable version |
+| Figures | `figures/*.png` | Plots included or referenced in the paper |
 
 ---
 
@@ -203,7 +203,7 @@ jupyter notebook notebook/compatibility_barrier_experiment.ipynb
 
 The notebook can be executed from the repository root.
 
-### Execute notebook and save executed copy
+### Execute notebook and save an executed copy
 
 ```bash
 jupyter nbconvert --to notebook --execute notebook/compatibility_barrier_experiment.ipynb \
@@ -219,7 +219,7 @@ jupyter nbconvert --to html --execute notebook/compatibility_barrier_experiment.
   --output-dir notebook
 ```
 
-Expected regenerated outputs:
+Running the notebook refreshes:
 
 ```text
 data/raw/synthetic_trials.csv
@@ -254,7 +254,7 @@ pdflatex paper.tex
 pdflatex paper.tex
 ```
 
-Expected output:
+The compiled PDF is:
 
 ```text
 paper/paper.pdf
@@ -271,7 +271,7 @@ sudo apt install texlive-latex-base texlive-latex-extra texlive-publishers texli
 
 ## Literature Review Material
 
-The literature review is organised through three files/folders:
+The literature review is organised through:
 
 ```text
 literature/search_protocol.md
@@ -298,8 +298,8 @@ literature/notes/
 
 | Priority | Source type | Use |
 |---:|---|---|
-| 1 | Peer-reviewed research | Main evidence and conceptual grounding |
-| 2 | Official technical documentation | Architecture and intended behaviour |
+| 1 | Peer-reviewed research | Academic evidence and conceptual grounding |
+| 2 | Official technical documentation | Architecture and definitions |
 | 3 | Maintainer repositories | Implementation-level details |
 | 4 | Community databases | Practical examples and context |
 | 5 | Blogs / opinion pieces | Background only |
@@ -380,7 +380,7 @@ virtualisation
 
 ---
 
-## Current Figures
+## Figures
 
 | Figure | Description |
 |---|---|
@@ -394,23 +394,23 @@ virtualisation
 
 ## Current Status
 
-| Area | Status |
+| Area | State |
 |---|---|
 | Topic and scope | Defined |
 | Search protocol | Drafted |
-| Source matrix | Initial version completed |
-| Source notes | Initial templates created |
+| Source matrix | First version complete |
+| Source notes | Initial notes in place |
 | Experimental design | Drafted |
-| Synthetic dataset | Generated |
-| Aggregated results | Generated |
-| Notebook | Created |
-| Executed notebook | Generated |
-| Notebook HTML export | Generated |
-| Figures | Generated |
+| Synthetic dataset | Ready |
+| Aggregated results | Ready |
+| Notebook | Available |
+| Executed notebook | Available |
+| Notebook HTML export | Available |
+| Figures | Ready |
 | README | Updated |
-| Paper draft | Generated |
-| LaTeX paper | Generated |
-| Final PDF draft | Generated |
+| Paper draft | Available |
+| LaTeX paper | Available |
+| PDF draft | Ready |
 
 ---
 
@@ -444,13 +444,13 @@ The final report must clearly distinguish between:
 
 ## Remaining Work
 
-The main repository structure is now complete. The remaining work is qualitative revision:
+The repository structure is now complete. The remaining work is mainly editorial:
 
 1. review the paper for clarity, grammar and page layout;
-2. check that every major claim has an appropriate citation;
-3. verify that figures fit cleanly in the IEEE layout;
-4. confirm that synthetic results are not presented as real compatibility measurements;
-5. perform one clean reproduction test before final submission.
+2. check that the most important claims are properly cited;
+3. verify that the figures fit cleanly in the IEEE layout;
+4. make sure synthetic results are never presented as real compatibility measurements;
+5. run one clean reproduction test before final submission.
 
 ---
 
@@ -463,4 +463,4 @@ Dashboard.md
 Project_Notes.md
 ```
 
-They are used for local planning and should not be considered part of the public submission.
+They are used for local planning and are not part of the public submission.
