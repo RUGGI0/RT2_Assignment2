@@ -8,6 +8,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{microtype}
 
 \graphicspath{{../figures/}}
 
@@ -33,7 +34,7 @@ The paper presents a state-of-the-art analysis of Windows application compatibil
 
 A synthetic experiment is then introduced to operationalise the compatibility-barrier taxonomy. The experiment models how different dependency classes affect simulated compatibility outcomes under five strategies: native Linux, Wine-like compatibility, Proton-like compatibility, managed prefixes and virtualisation. The results are not real-world compatibility measurements. They are used as a structured illustration of why dependency type matters more than nominal application class.
 
-The analysis suggests that compatibility layers can reduce the Windows-Linux application barrier for many user-space workloads, but cannot independently eliminate ecosystem lock-in. Kernel drivers, anti-cheat systems, proprietary licensing, specialised hardware, cloud services and enterprise workflows remain difficult barriers. Linux adoption therefore depends on both compatibility-layer engineering and broader ecosystem integration.
+The analysis suggests that compatibility layers can reduce the Windows--Linux application barrier for many user-space workloads, but cannot independently eliminate ecosystem lock-in. Kernel drivers, anti-cheat systems, proprietary licensing, specialised hardware, cloud services and enterprise workflows remain difficult barriers. Linux adoption therefore depends on both compatibility-layer engineering and broader ecosystem integration.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -46,7 +47,7 @@ Desktop operating systems are not adopted in isolation. A user does not choose o
 
 This issue is visible in many contexts. A home user may depend on a Windows-only game launcher, a professional may require specialised creative or CAD software, and an organisation may rely on internal applications, macros, file formats or peripherals designed around Windows. In each case, the operating-system choice is shaped by the application layer.
 
-The central problem of this paper is therefore the Windows-Linux application compatibility barrier. This barrier is not a single technical defect. It is a set of interacting dependencies involving APIs, graphics stacks, drivers, licensing mechanisms, hardware, cloud services and workflows.
+The central problem of this paper is therefore the Windows--Linux application compatibility barrier. This barrier is not a single technical defect. It is a set of interacting dependencies involving APIs, graphics stacks, drivers, licensing mechanisms, hardware, cloud services and workflows.
 
 Compatibility layers attempt to reduce this barrier by allowing Windows binaries to run on Linux without a complete rewrite. Wine is the general-purpose compatibility-layer foundation for running Windows applications on POSIX-compliant systems such as Linux, macOS and BSD \cite{winehqAbout}. Proton is a Valve-maintained compatibility tool for Steam Play, based on Wine and additional components, that allows many Windows games to run on Linux through the Steam client \cite{valveProton}. SteamOS provides a Linux-based platform where this compatibility stack can be integrated into a user-facing system \cite{steamOSDownload}. Bazzite is relevant as a comparative distribution-level case because it shows how a SteamOS-like Linux experience can be assembled with gaming-focused preconfiguration and atomic desktop practices \cite{bazziteDocs,bazziteFedoraAtomicComparison}.
 
@@ -65,7 +66,7 @@ To what extent can compatibility layers reduce the application-ecosystem barrier
 The contribution of the paper is fourfold:
 \begin{enumerate}
     \item it organises the state of the art around Wine, Proton, SteamOS, Bazzite and related compatibility tools;
-    \item it proposes a taxonomy of Windows-Linux compatibility barriers;
+    \item it proposes a taxonomy of Windows--Linux compatibility barriers;
     \item it distinguishes technical compatibility from distribution-level adoption friction;
     \item it introduces a synthetic experiment that models how dependency types affect simulated compatibility outcomes.
 \end{enumerate}
@@ -96,7 +97,7 @@ The distinction matters because each strategy solves a different part of the com
 
 Wine is the foundational project for running Windows applications on Linux and other POSIX-compliant systems. Its importance lies in the fact that it does not require a full copy of Windows. Instead, it implements or translates the interfaces expected by Windows applications \cite{winehqAbout}.
 
-For the Windows-Linux migration problem, Wine is important because it targets existing Windows binaries. It therefore addresses the legacy software problem: applications that already exist for Windows but have no native Linux version.
+For the Windows--Linux migration problem, Wine is important because it targets existing Windows binaries. It therefore addresses the legacy software problem: applications that already exist for Windows but have no native Linux version.
 
 However, Wine also reveals the limits of compatibility-layer approaches. Applications may rely on undocumented behaviour, missing APIs, Windows services, drivers, licensing systems or hardware assumptions. In these cases, compatibility is not guaranteed by the presence of the compatibility layer alone. There are also security implications when running Windows software and potentially Windows malware through Wine on Linux systems \cite{duncan2019wineSecurity}.
 
@@ -199,7 +200,7 @@ Finally, users may face friction from setup complexity, unstable updates, driver
 
 \subsection{Literature Review}
 
-The literature review is organised through the project files \texttt{literature/search\_protocol.md}, \texttt{literature/source\_matrix.csv} and \texttt{literature/notes/}. The review combines official documentation, maintainer repositories, academic papers and supporting community sources. These sources are grouped thematically instead of being summarised one by one.
+The literature review is organised through the repository material: the search protocol, the source matrix and the source notes. The review combines official documentation, maintainer repositories, academic papers and supporting community sources. These sources are grouped thematically instead of being summarised one by one.
 
 The evidence hierarchy is:
 \begin{enumerate}
@@ -212,7 +213,7 @@ The evidence hierarchy is:
 
 \subsection{Synthetic Experiment}
 
-The experimental design is documented in \texttt{docs/experimental\_design.md}. The notebook is \texttt{notebook/compatibility\_barrier\_experiment.ipynb}.
+The experimental design is documented in the repository, while the Jupyter notebook contains the executable synthetic model used to generate the dataset, processed results and figures.
 
 The experiment is synthetic. Its role is to make the taxonomy operational by simulating how different dependency classes affect compatibility outcomes. The model compares five strategies: native Linux, Wine-like execution, Proton-like compatibility, managed prefixes and virtualisation.
 
@@ -232,11 +233,11 @@ The experiment is not used as empirical proof. It is used as a controlled model.
 
 \subsection{Dataset Overview}
 
-The raw dataset is stored in \texttt{data/raw/synthetic\_trials.csv}. The processed strategy-level results are stored in \texttt{data/processed/aggregated\_results.csv}. The dataset contains 600 rows. Each strategy is evaluated through 120 synthetic trials.
+The experiment produces a raw synthetic dataset and a processed strategy-level summary. The dataset contains 600 rows, and each strategy is evaluated through 120 synthetic trials.
 
 \subsection{Aggregated Results by Strategy}
 
-Table~\ref{tab:aggregated-results} reports the current strategy-level results.
+Table~\ref{tab:aggregated-results} reports the strategy-level results.
 
 \begin{table*}[t]
 \centering
@@ -271,7 +272,7 @@ Raw Wine-like execution is the most fragile strategy in the model. This reflects
 
 \subsection{Figures}
 
-The notebook generates five figures. The most important figures for the final paper are likely \texttt{strategy\_comparison.png}, \texttt{dependency\_risk\_heatmap.png} and \texttt{setup\_effort\_boxplot.png}.
+Three figures are included to summarise the synthetic experiment: a strategy comparison, a dependency-risk heatmap and a setup-effort distribution.
 
 \begin{figure}[t]
     \centering
@@ -298,11 +299,11 @@ The notebook generates five figures. The most important figures for the final pa
 
 \subsection{Compatibility Layers Reduce but Do Not Erase the Barrier}
 
-The analysis suggests that compatibility layers can reduce the Windows-Linux application barrier for some workloads. This is especially plausible for applications whose main dependencies are user-space APIs or graphics calls that can be translated.
+The analysis suggests that compatibility layers can reduce the Windows--Linux application barrier for some workloads. This is especially plausible for applications whose main dependencies are user-space APIs or graphics calls that can be translated.
 
 However, compatibility layers are weaker when the dependency is outside user-space API translation. Kernel drivers, anti-cheat systems, licensing services, proprietary hardware and enterprise workflows remain difficult.
 
-\subsection{Proton as Proof of Engineering Feasibility}
+\subsection{Proton as Evidence of Engineering Feasibility}
 
 Proton demonstrates that compatibility-layer engineering can support complex workloads when it is combined with platform integration. Its significance lies in the combination of Wine-based compatibility, graphics translation, runtime control and Steam integration.
 
@@ -320,7 +321,7 @@ Virtualisation remains important because it can support applications that compat
 
 \subsection{Implications for Linux Adoption}
 
-The Windows-Linux adoption problem should be understood as a layered issue: application binary compatibility, runtime and dependency management, graphics and driver support, licensing and service compatibility, distribution-level usability and organisational workflow migration. Solving only one layer is not enough.
+The Windows--Linux adoption problem should be understood as a layered issue: application binary compatibility, runtime and dependency management, graphics and driver support, licensing and service compatibility, distribution-level usability and organisational workflow migration. Solving only one layer is not enough.
 
 \section{Limitations}
 
@@ -340,13 +341,13 @@ Sixth, the paper does not perform a legal or economic analysis of licensing, ven
 
 \section{Conclusion}
 
-The Windows-Linux application barrier is a major obstacle to desktop Linux adoption. It is not limited to whether Linux itself is technically capable. It arises from the dependency of applications, workflows and organisations on Windows-specific APIs, services, drivers, licensing mechanisms and habits.
+The Windows--Linux application barrier is a major obstacle to desktop Linux adoption. It is not limited to whether Linux itself is technically capable. It arises from the dependency of applications, workflows and organisations on Windows-specific APIs, services, drivers, licensing mechanisms and habits.
 
 Compatibility layers can reduce this barrier. Wine provides the general foundation, while Proton and SteamOS show how compatibility-layer engineering can become practical when combined with graphics translation, runtime control and platform integration. Bazzite shows that distribution-level engineering can further reduce adoption friction by making the surrounding Linux environment easier to use.
 
 However, compatibility layers cannot eliminate all forms of Windows dependence. Kernel drivers, anti-cheat systems, proprietary licensing, specialised hardware, cloud services and enterprise workflows remain major barriers.
 
-The most realistic conclusion is therefore intermediate. Compatibility layers can make Linux adoption more feasible, but they do not replace native ports, virtualisation, organisational migration planning or broader interoperability work. The future of Windows-Linux portability depends on both technical compatibility and ecosystem-level integration.
+The most realistic conclusion is therefore intermediate. Compatibility layers can make Linux adoption more feasible, but they do not replace native ports, virtualisation, organisational migration planning or broader interoperability work. The future of Windows--Linux portability depends on both technical compatibility and ecosystem-level integration.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
