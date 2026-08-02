@@ -125,11 +125,7 @@ RT2_Assignment2/
 ├── paper/
 │   ├── paper.tex
 │   ├── paper.pdf
-│   ├── paper_draft.md
 │   ├── references.bib
-│   ├── citation_plan.md
-│   └── README.md
-└── src/
 ```
 
 | Folder | Contents |
@@ -140,8 +136,7 @@ RT2_Assignment2/
 | `data/processed/` | Aggregated results |
 | `notebook/` | Original notebook, executed notebook and HTML export |
 | `figures/` | Plots used in the paper |
-| `paper/` | LaTeX report, bibliography, draft, citation plan and PDF |
-| `src/` | Optional support scripts |
+| `paper/` | LaTeX report, bibliography and final PDF |
 
 ---
 
@@ -149,11 +144,9 @@ RT2_Assignment2/
 
 | File | Path | Notes |
 |---|---|---|
-| Paper PDF | `paper/paper.pdf` | Current IEEE-style draft |
+| Paper PDF | `paper/paper.pdf` | Final IEEE-style paper |
 | LaTeX source | `paper/paper.tex` | Main paper source |
 | Bibliography | `paper/references.bib` | BibTeX references used by the LaTeX paper |
-| Markdown draft | `paper/paper_draft.md` | Readable draft version of the paper |
-| Citation plan | `paper/citation_plan.md` | Map between claims and citation keys |
 | Experimental design | `docs/experimental_design.md` | Methodological description of the synthetic model |
 | Raw synthetic dataset | `data/raw/synthetic_trials.csv` | Input dataset used by the notebook |
 | Aggregated results | `data/processed/aggregated_results.csv` | Summary table used for analysis |
