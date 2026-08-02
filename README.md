@@ -220,16 +220,3 @@ The paper therefore distinguishes between:
 | Maintainer repositories | Implementation-level details |
 | Community databases | Practical context only |
 | Synthetic experiment | Methodological illustration |
-
----
-
-## Private Local Files
-
-The following Obsidian planning files are intentionally ignored by Git:
-
-```text
-Dashboard.md
-Project_Notes.md
-```
-
-They are local working files and are not part of the public submission.
